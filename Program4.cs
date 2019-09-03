@@ -26,7 +26,7 @@ namespace ConsoleApp1
 
         public override string ToString()
         {
-            return ($"\nId:{Id}\nFuncionario: {Nome}\nSalario:{Salario}");
+            return ($"\nId:{Id}\nFuncionario: {Nome}\nSalario: R${Salario.ToString("F2")}");
         }
     }
     class Program
@@ -61,10 +61,22 @@ namespace ConsoleApp1
                 Console.WriteLine(f);
             }
 
-            Console.WriteLine("\nDigite o Id do funcionario q deseja aumentar o salario: ");
+            Console.Write("\nDigite o Id do funcionario q deseja aumentar o salario: ");
             auxid = int.Parse(Console.ReadLine());
 
             Funcionario aux = list.Find(x => x.Id == auxid);//continua...
+
+            if (aux != null)
+            {
+                Console.Write("Digite quantos % deseja aumentar o salario: ");
+                aux.Aumento(double.Parse(Console.ReadLine()));
+            }
+
+            Console.WriteLine("\nDados atualizados\n-----------------------------------");
+            foreach (Funcionario f in list)
+            {
+                Console.WriteLine(f);
+            }
 
             Console.ReadKey();
         }
