@@ -24,5 +24,11 @@ namespace Banco.Entities
             texto.AppendLine($"Limite de emprestismo: ${Limite.ToString("F2")}");
             return texto.ToString();
         }
+
+        public override double Sacar(double x)
+        {
+            double taxa = 1.02;
+            return Saldo - (x * taxa);
+        }
     }
 }

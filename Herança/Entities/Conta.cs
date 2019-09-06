@@ -27,5 +27,11 @@ namespace Banco.Entities
             texto.AppendLine($"Saldo atual: ${Saldo.ToString("F2")}");
             return texto.ToString();
         }
+
+        //para que um metodo da superclasse possa ser sobreescrito ele precisa ser Virtual ou abstract ou overrided
+        public virtual double Sacar(double x)
+        {
+            return Saldo - x;
+        }
     }
 }
