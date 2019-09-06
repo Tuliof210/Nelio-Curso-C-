@@ -24,7 +24,7 @@ namespace Pedido
 
 
             Console.WriteLine("\nEntre com as informações do pedido: ");
-            Console.Write("Status:");
+            Console.Write("Status: ");
             OrderStatus auxorder = new OrderStatus();
             Enum.TryParse(Console.ReadLine(), out auxorder);
             Console.Write("Quantos produtos? ");
@@ -41,7 +41,7 @@ namespace Pedido
 
             for (int x = 1; x <= quant; x++)
             {
-                Console.WriteLine($"Entre com a informação do {x}º produto");
+                Console.WriteLine($"\nEntre com a informação do {x}º produto");
                 Console.Write("Nome do produto: ");
                 auxproductname = Console.ReadLine();
                 Console.Write("Preço: ");
@@ -54,7 +54,9 @@ namespace Pedido
                 o1.AddItem(auxo);
             }
 
-            //CONTINUA........
+            Console.WriteLine($"\nSumário do Pedido:\n----------------------------------\n{o1}");
+            Console.WriteLine($"Itens do Pedido:\n{o1.AllItens()}");
+            Console.WriteLine($"Preço Total do Pedido: R${o1.Total().ToString("F2")}");
 
             Console.ReadKey();
         }
