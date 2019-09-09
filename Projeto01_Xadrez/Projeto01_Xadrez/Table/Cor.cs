@@ -3,7 +3,7 @@
     enum Cor
     {
         Branca,
-        Akmarela,
+        Amarela,
         Rosa,
         Vermelha,
         Verde,
