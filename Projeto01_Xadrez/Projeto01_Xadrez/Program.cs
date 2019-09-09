@@ -12,16 +12,22 @@ namespace TheGame
     {
         static void Main(string[] args)
         {
-            Position p = new Position(3, 4);
-            Tabuleiro t = new Tabuleiro(8, 8);
+            try
+            {
+                Position p = new Position(3, 4);
+                Tabuleiro t = new Tabuleiro(8, 8);
 
-            t.ColocarPeca(new Torre(t, Cor.Amarela), new Position(0, 0));
-            t.ColocarPeca(new Torre(t, Cor.Amarela), new Position(1, 3));
-            t.ColocarPeca(new Rei(t, Cor.Amarela), new Position(2, 4));
+                t.ColocarPeca(new Torre(t, Cor.Amarela), new Position(0, 0));
+                t.ColocarPeca(new Torre(t, Cor.Amarela), new Position(1, 3));
+                t.ColocarPeca(new Rei(t, Cor.Amarela), new Position(-1, 0));
 
-            Tela.ImprimirTabuleiro(t);
+                Tela.ImprimirTabuleiro(t);
+            }
+            catch(TableException e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
-            //Console.WriteLine(p);
             Console.ReadKey();
         }
     }

@@ -48,6 +48,7 @@
     <Compile Include="Table\Cor.cs" />
     <Compile Include="Table\Peca.cs" />
     <Compile Include="Table\Position.cs" />
+    <Compile Include="Table\TableException.cs" />
     <Compile Include="Table\Tabuleiro.cs" />
     <Compile Include="Tela.cs" />
     <Compile Include="Xadrez\Rei.cs" />
