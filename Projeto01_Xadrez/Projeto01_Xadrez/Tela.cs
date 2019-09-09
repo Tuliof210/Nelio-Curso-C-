@@ -13,9 +13,11 @@ namespace Xadrez
         {
             char row = '\u0041';
 
+            Console.WriteLine();
+
             for (int i = 0; i < tab.Linhas; i++)
             {
-                Console.Write($"{row}     ");
+                Console.Write($"{row}   ");
                 for (int j = 0; j < tab.Linhas; j++)
                 {
                     if (tab.peca(i, j) == null) Console.Write("- ");
@@ -24,7 +26,7 @@ namespace Xadrez
                 Console.WriteLine();
                 row++;
             }
-            Console.WriteLine("\n\n      1 2 3 4 5 6 7 8\n"); //deixar a tela mais organizada
+            Console.WriteLine("\n    1 2 3 4 5 6 7 8\n"); //deixar a tela mais organizada
         }
     }
 }
