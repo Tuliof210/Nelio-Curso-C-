@@ -19,7 +19,6 @@ namespace TheGame
 
                 t.ColocarPeca(new Torre(t, Cor.Amarela), new Position(0, 0));
                 t.ColocarPeca(new Torre(t, Cor.Amarela), new Position(1, 3));
-                t.ColocarPeca(new Rei(t, Cor.Amarela), new Position(-1, 0));
 
                 Tela.ImprimirTabuleiro(t);
             }
