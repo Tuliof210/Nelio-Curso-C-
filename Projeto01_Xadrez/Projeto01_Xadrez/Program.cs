@@ -14,7 +14,9 @@ namespace Xadrez
             Position p = new Position(3, 4);
             Tabuleiro t = new Tabuleiro(8, 8);
 
-            Console.WriteLine(p);
+            Tela.ImprimirTabuleiro(t);
+
+            //Console.WriteLine(p);
             Console.ReadKey();
         }
     }
