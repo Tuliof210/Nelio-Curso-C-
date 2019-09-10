@@ -14,13 +14,21 @@ namespace TheGame
         {
             try
             {
-                Position p = new Position(3, 4);
-                Tabuleiro t = new Tabuleiro(8, 8);
+                Partida game = new Partida();
 
-                t.ColocarPeca(new Torre(t, Cor.Amarela), new Position(0, 0));
-                t.ColocarPeca(new Torre(t, Cor.Amarela), new Position(1, 3));
+                while (!game.Terminada)
+                {
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(game.Tab);
 
-                Tela.ImprimirTabuleiro(t);
+
+                    Console.Write("\n\nOrigem: ");
+                    Position origem = Tela.Ler().ToPosition();
+                    Console.Write("Destino: ");
+                    Position destino = Tela.Ler().ToPosition();
+
+                    game.ExecutaMovimento(origem, destino);
+                }
             }
             catch(TableException e)
             {

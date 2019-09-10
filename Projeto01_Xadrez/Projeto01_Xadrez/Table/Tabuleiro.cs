@@ -41,6 +41,19 @@
             p.position = pos; //nao importa a ordem ja que o objeto em si é o mesmo
         }
 
+        public Peca RetirarPeca(Position pos)
+        {
+            if(peca(pos) == null)
+            {
+                return null;
+            }
+
+            Peca aux = peca(pos);
+            aux.position = null;
+            pecas[pos.Linha, pos.Coluna] = null;
+            return aux;
+        }
+
         public bool PosicaoValida(Position pos)
         {
             if (pos.Linha < 0 || pos.Linha >= Linhas || pos.Coluna < 0 || pos.Coluna >= Colunas)

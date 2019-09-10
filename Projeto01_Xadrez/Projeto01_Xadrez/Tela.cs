@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Table;
+using Xadrez;
 
 namespace Xadrez
 {
@@ -46,11 +47,20 @@ namespace Xadrez
             else
             {
                 ConsoleColor aux = Console.ForegroundColor;//grava a cor padrao
-                Console.ForegroundColor = ConsoleColor.Red;//troca a cor padrao
+                Console.ForegroundColor = ConsoleColor.Yellow;//troca a cor padrao
 
                 Console.Write(p);
                 Console.ForegroundColor = aux;//reseta a cor padrao
             }
+        }
+
+        public static MatrizXadrez Ler()
+        {
+            string s = Console.ReadLine();
+
+            char c = s[0];
+            int l = int.Parse(s[1] + "");
+            return new MatrizXadrez(c, l);
         }
     }
 }
