@@ -12,6 +12,10 @@ namespace TheGame
     {
         static void Main(string[] args)
         {
+            MatrizXadrez mx = new MatrizXadrez('c', 7);
+
+            Console.WriteLine(mx.ToPosition());
+
             try
             {
                 Position p = new Position(3, 4);
