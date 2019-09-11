@@ -1,6 +1,6 @@
 ﻿namespace Table
 {
-    class Peca
+    abstract class Peca
     {
         public Position position { get; set; }
         public Cor color { get; protected set; }
@@ -15,6 +15,8 @@
             QuantMovimentos = 0;
             this.tab = tab;
         }
+
+        public abstract bool[,] MovimentosPosiveis();
 
         public void IncrementarQuantMovimentos()
         {
