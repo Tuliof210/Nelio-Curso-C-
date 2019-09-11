@@ -18,23 +18,43 @@ namespace TheGame
 
                 while (!game.Terminada)
                 {
-                    Console.Clear();
-                    Tela.ImprimirTabuleiro(game.Tab);
+                    try
+                    {
+                        Console.Clear();
+                        Tela.ImprimirPartida(game);
 
+                        Console.Write("\nOrigem: ");
+                        Position origem = Tela.Ler().ToPosition();
+                        game.ValidarPosOrigem(origem);
 
-                    Console.Write("\n\nOrigem: ");
-                    Position origem = Tela.Ler().ToPosition();
-                    Console.Write("Destino: ");
-                    Position destino = Tela.Ler().ToPosition();
+                        bool[,] possiveis = game.Tab.peca(origem).MovimentosPosiveis();
 
-                    game.ExecutaMovimento(origem, destino);
+                        Console.Clear();
+                        Tela.ImprimirTabuleiro(game.Tab, possiveis);
+                        Console.WriteLine("\n\nTurno: " + game.Turno);
+                        Console.WriteLine("Aguardando Jogada: " + game.JogadorAtual);
+
+                        Console.Write("\nDestino: ");
+                        Position destino = Tela.Ler().ToPosition();
+
+                        game.RealizaJogada(origem, destino);
+                    }
+                    catch (TableException e)
+                    {
+                        Console.Write($"{e.Message}, digite uma tecla para continuar...");
+                        Console.ReadKey();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Write($"{e.Message}\ndigite uma tecla para continuar...");
+                        Console.ReadKey();
+                    }
                 }
             }
             catch(TableException e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine($"\n{e.Message}");
             }
-
             Console.ReadKey();
         }
     }
